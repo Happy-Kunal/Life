@@ -1,6 +1,7 @@
 import math as _math
+import random as _random
 
-# Element Class For Creating Liveable Creatures In Simulation
+# Element Class For Creating Liveable Creatures/Blob In Simulation
 class Element :
     
     Idnum = 0
@@ -14,12 +15,16 @@ class Element :
         self.id = self.Idnum
         self.data["initial_life"] = life
         self.data["food"] = 0
-        
+        self.step = 1
+        self.food_grabing_radius = 1
+
         Element.Idnum += 1
         Element.Alive[self.id] = self
-        
+    # this function gonna be triggred to pass a day in the simulation
     def daypassed(self) :
-        
+        # since food is the most important if an element/Blob got one Food
+        # it will gonna  survive for next day if got two food gonna
+        # survive for next day and Reproduce itself 
         if (self.data["food"] >= 2):
             
             return self.reproduce(self.location , self.life , **self.data)
@@ -32,7 +37,9 @@ class Element :
             
             self.died("starvation")
         
-        # Life expectance
+        # Life expectance : sometimes user may wants to give a limited
+        # life to its elements(Creatures / Blob) in that case it is important to
+        # check weather its time for death of Element/Blob or not
         if self.life > 0 :
             
             self.life -= 1
@@ -50,6 +57,29 @@ class Element :
     def reproduce(Element , location , life  , **data) :
           
           return Element(location , life , **data)
+
+    # this function decides were blob (Element) wants to move and updates
+    # its location 
+    def move(self) :
+        # randomly finding an angle so that we can get the polar coordinates
+        # for blob to move
+        rotate_angle = _random.randrange(0, 360 , 10)
+
+        # polar coordinates
+        movex = self.step * _math.cos(_math.radians(rotate_angle))
+        movey = self.step * _math.sin(_math.radians(rotate_angle))
+
+        self.location = (self.location[0] + movex , self.location[1] + movey)
+
+    # blob can grab the food directly if the food is present within
+    # the grabing range of Blob
+    def grab_food(self) :
+
+        pass
+
+    
+
+
 
 
 if __name__ == "__main__" :
