@@ -7,8 +7,7 @@ class Element :
     Idnum = 0
     Alive = {}
     
-    def __init__(self , location = (0 , 0) , life = _math.inf , **data) :
-        
+    def __init__(self , location = (0 , 0) , life = _math.inf , **data):
         self.location = location
         self.life = life
         self.data = data
@@ -83,31 +82,31 @@ class Element :
 
 
 if __name__ == "__main__" :
-     
-      # Creating very first instance 
-      e0 = Element()
-      print(f"e0 : {e0}")
-      
-      # Syntetically Giving Food
-      e0.data["food"] = 10
-      
-      # Storing  Reproduced Object
-      e1 = e0.daypassed()
-      print(f"e1 : {e1}")
-      
-      # Alive members
-      print()
-      print(f"Alive Dict : {Element.Alive}")
-      print()
-      
-      # Killing e1
-      e1.died("Loneliness / Lack Of Friends")
-      
-      # Proof that e1 isn't yet killed by garbage collector
-      print(f"e1 : {e1}")
-      
-      # Proof that e1 doesn't Exists in Alive Dict
-      print()
-      print(f"Alive Dict : {Element.Alive}")
-      
-      
+
+# Creating very first instance 
+    e0 = Element()
+    print(f"e0 : {e0}")
+
+# Syntetically Giving Food
+    e0.data["food"] = 10
+
+# Storing  Reproduced Object
+    e1 = e0.daypassed()
+    print(f"e1 : {e1}")
+
+# Alive members
+    print()
+    print(f"Alive Dict : {Element.Alive}")
+    print()
+
+# Killing e1
+    e1.died("Loneliness / Lack Of Friends")
+
+# Proof that e1 isn't yet killed by garbage collector
+    print(f"e1 : {e1}")
+
+# Proof that e1 doesn't Exists in Alive Dict
+    print()
+    print(f"Alive Dict : {Element.Alive}")
+
+
