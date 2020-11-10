@@ -16,15 +16,21 @@ class Element :
         self.data["food"] = 0
         self.step = 1
         self.food_grabing_radius = 1
+        self.data['size']=5 # random selected 5 as a size of initial trait
+        self.data['speed']=5 # random selected 5 as speed of intial trait
 
         Element.Idnum += 1
         Element.Alive[self.id] = self
+
+
     # this function gonna be triggred to pass a day in the simulation
     def daypassed(self) :
         # since food is the most important if an element/Blob got one Food
         # it will gonna  survive for next day if got two food gonna
         # survive for next day and Reproduce itself 
         if (self.data["food"] >= 2):
+
+            print(self.location,self.life,self.data)
             
             return self.reproduce(self.location , self.life , **self.data)
         
