@@ -62,8 +62,7 @@ Contributions are what make the open source community such an amazing place to b
 
 ---
 ## Contact
-* Email : [happykunal9871@gmail.com](happykunal9871@gmail.com)
-* Telegram : @Happy-Kunal
+* Email : happykunal9871@gmail.com
 ---
 
 ### THANKS FOR CHOOSING
